@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Kirim masukan dan saran fitur untuk Kasku.">
+  <title>Masukan - Kasku</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;800&family=Plus+Jakarta+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link href="./output.css" rel="stylesheet">
+</head>
+<body>
+  <a href="#konten" class="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:bg-white focus:px-3 focus:py-2">Lewati ke konten utama</a>
+
+  <header class="sticky top-0 z-20 border-b border-line bg-paper/95 backdrop-blur">
+    <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4" aria-label="Navigasi utama">
+      <a href="index.html" class="font-display text-2xl font-extrabold text-teal">Kasku</a>
+      <ul id="menu" class="absolute left-0 right-0 top-full hidden flex-col gap-1 border-b border-line bg-paper p-6 md:static md:flex md:flex-row md:gap-8 md:border-0 md:bg-transparent md:p-0">
+        <li><a class="block py-2 hover:text-teal aria-[current=page]:font-bold aria-[current=page]:text-teal" href="index.html">Beranda</a></li>
+        <li><a class="block py-2 hover:text-teal aria-[current=page]:font-bold aria-[current=page]:text-teal" href="transaksi.html">Transaksi</a></li>
+        <li><a class="block py-2 hover:text-teal aria-[current=page]:font-bold aria-[current=page]:text-teal" href="anggaran.html">Anggaran</a></li>
+        <li><a class="block py-2 hover:text-teal aria-[current=page]:font-bold aria-[current=page]:text-teal" href="kurs.html">Kurs</a></li>
+        <li><a class="block py-2 hover:text-teal aria-[current=page]:font-bold aria-[current=page]:text-teal" href="masukan.html" aria-current="page">Masukan</a></li>
+      </ul>
+      <button id="menu-btn" type="button" class="rounded-lg border border-line px-3 py-2 md:hidden" aria-expanded="false" aria-controls="menu">Menu</button>
+    </nav>
+  </header>
+
+  <main id="konten" class="px-6 py-16">
+    <form id="feedback-form" class="card mx-auto max-w-lg p-8" novalidate>
+      <h1 id="fb-title" class="font-display text-2xl font-extrabold">Kirim masukan</h1>
+      <p class="mt-2">Data dikirim lewat fetch POST ke API uji coba (tidak disimpan).</p>
+      <p class="mb-6 mt-1 text-sm">Kolom bertanda <span class="font-bold text-expense">*</span> wajib diisi.</p>
+
+      <label for="fb-nama" class="mb-1 block font-bold">Nama <span class="text-expense" aria-hidden="true">*</span></label>
+      <input id="fb-nama" name="nama" type="text" required maxlength="60" autocomplete="name" placeholder="Nama lengkap" class="field" aria-describedby="err-nama">
+      <p id="err-nama" class="mb-3 mt-1 min-h-5 text-sm text-expense" role="alert"></p>
+
+      <label for="fb-email" class="mb-1 block font-bold">Email <span class="text-expense" aria-hidden="true">*</span></label>
+      <input id="fb-email" name="email" type="email" required maxlength="100" autocomplete="email" placeholder="nama@email.com" class="field" aria-describedby="err-email">
+      <p id="err-email" class="mb-3 mt-1 min-h-5 text-sm text-expense" role="alert"></p>
+
+      <label for="fb-pesan" class="mb-1 block font-bold">Masukan <span class="text-expense" aria-hidden="true">*</span></label>
+      <textarea id="fb-pesan" name="pesan" rows="4" required maxlength="500" class="field" placeholder="Fitur apa yang kamu butuhkan?" aria-describedby="err-pesan fb-hint"></textarea>
+      <p id="fb-hint" class="mt-1 flex justify-between text-sm"><span>Minimal 10 karakter.</span><span id="fb-count">0/500</span></p>
+      <p id="err-pesan" class="mb-3 mt-1 min-h-5 text-sm text-expense" role="alert"></p>
+
+      <p id="fb-status" class="mb-3 min-h-6 text-center font-bold" role="status" aria-live="polite"></p>
+      <button type="submit" class="btn-primary w-full">Kirim masukan</button>
+    </form>
+  </main>
+
+  <footer class="bg-ink py-8 text-center text-paper">
+    <p>&copy; 2026 Kasku. Praktikum Pemrograman Web, Universitas Muhammadiyah Malang.</p>
+  </footer>
+
+  <script type="module" src="./js/page-masukan.js"></script>
+</body>
+</html>

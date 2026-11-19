@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+/* ===== 1. TOKEN TEMA: ubah nilai di sini untuk mengganti tema (Codelab Modul 1) ===== */
+@theme {
+  --color-ink: #12263a;
+  --color-teal: #0f766e;
+  --color-income: #15803d;
+  --color-expense: #be123c;
+  --color-warn: #eab308;
+  --color-paper: #f3f7f5;
+  --color-line: #d3dfdb;
+  --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-paper font-sans text-ink antialiased; }
+  :focus-visible { @apply outline-2 outline-offset-2 outline-teal; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+}
+
+/* ===== 2. KOMPONEN: tiap class menulis utility-nya sendiri (@apply tidak bisa memanggil class kustom) ===== */
+@layer components {
+  .btn-primary { @apply inline-flex items-center justify-center rounded-lg px-6 py-3 font-bold transition-colors bg-teal text-white hover:bg-teal/85 disabled:opacity-50; }
+  .btn-outline { @apply inline-flex items-center justify-center rounded-lg px-6 py-3 font-bold transition-colors border-2 border-ink text-ink hover:bg-ink hover:text-white disabled:pointer-events-none disabled:opacity-50; }
+  .section { @apply mx-auto max-w-6xl px-6 py-16; }
+  .card { @apply rounded-xl border border-line bg-white p-6; }
+  .field { @apply w-full rounded-lg border border-line bg-white px-4 py-3 placeholder:text-ink/50 aria-invalid:border-expense; }
+  .badge { @apply rounded-full px-2.5 py-0.5 text-xs font-bold; }
+  .chip { @apply rounded-full border border-line bg-white px-4 py-1.5 text-sm font-bold hover:bg-ink/5; }
+  .chip[aria-pressed="true"] { @apply border-ink bg-ink text-white; }
+}

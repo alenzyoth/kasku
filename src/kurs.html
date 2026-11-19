@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lihat saldo uang sakumu dalam dolar AS berdasarkan kurs terkini.">
+  <title>Kurs - Kasku</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;800&family=Plus+Jakarta+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link href="./output.css" rel="stylesheet">
+</head>
+<body>
+  <a href="#konten" class="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:bg-white focus:px-3 focus:py-2">Lewati ke konten utama</a>
+
+  <header class="sticky top-0 z-20 border-b border-line bg-paper/95 backdrop-blur">
+    <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4" aria-label="Navigasi utama">
+      <a href="index.html" class="font-display text-2xl font-extrabold text-teal">Kasku</a>
+      <ul id="menu" class="absolute left-0 right-0 top-full hidden flex-col gap-1 border-b border-line bg-paper p-6 md:static md:flex md:flex-row md:gap-8 md:border-0 md:bg-transparent md:p-0">
+        <li><a class="block py-2 hover:text-teal aria-[current=page]:font-bold aria-[current=page]:text-teal" href="index.html">Beranda</a></li>
+        <li><a class="block py-2 hover:text-teal aria-[current=page]:font-bold aria-[current=page]:text-teal" href="transaksi.html">Transaksi</a></li>
+        <li><a class="block py-2 hover:text-teal aria-[current=page]:font-bold aria-[current=page]:text-teal" href="anggaran.html">Anggaran</a></li>
+        <li><a class="block py-2 hover:text-teal aria-[current=page]:font-bold aria-[current=page]:text-teal" href="kurs.html" aria-current="page">Kurs</a></li>
+        <li><a class="block py-2 hover:text-teal aria-[current=page]:font-bold aria-[current=page]:text-teal" href="masukan.html">Masukan</a></li>
+      </ul>
+      <button id="menu-btn" type="button" class="rounded-lg border border-line px-3 py-2 md:hidden" aria-expanded="false" aria-controls="menu">Menu</button>
+    </nav>
+  </header>
+
+  <main id="konten" class="section">
+    <h1 class="font-display text-4xl font-extrabold">Saldo dalam dolar</h1>
+    <p class="mt-3 max-w-prose">Kurs diambil dari API publik dengan <code>fetch</code>. Berguna kalau kamu belanja langganan atau layanan dalam dolar.</p>
+
+    <section class="card mt-8 max-w-lg" aria-live="polite">
+      <p id="rate-loading" class="font-bold" role="status">Memuat kurs...</p>
+      <section id="rate-error" hidden role="alert">
+        <h2 class="font-display text-lg font-bold text-expense">Kurs gagal dimuat</h2>
+        <p id="rate-error-msg" class="mt-2"></p>
+      </section>
+      <section id="rate-result" hidden>
+        <p class="text-sm">Kurs terkini</p>
+        <p id="rate-value" class="font-display text-2xl font-extrabold"></p>
+        <p class="mt-4 text-sm">Saldo kamu setara dengan</p>
+        <p id="rate-balance" class="font-display text-3xl font-extrabold text-teal"></p>
+        <p id="rate-updated" class="mt-2 text-sm"></p>
+      </section>
+      <button id="rate-refresh" type="button" class="btn-outline mt-4">Perbarui kurs</button>
+    </section>
+  </main>
+
+  <footer class="bg-ink py-8 text-center text-paper">
+    <p>&copy; 2026 Kasku. Praktikum Pemrograman Web, Universitas Muhammadiyah Malang.</p>
+  </footer>
+
+  <script type="module" src="./js/page-kurs.js"></script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Kasku: catat pemasukan dan pengeluaran uang saku, pantau anggaran bulanan, dan lihat kategori yang paling menghabiskan uangmu.">
+  <title>Kasku - Pelacak uang saku mahasiswa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;800&family=Plus+Jakarta+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link href="./output.css" rel="stylesheet">
+</head>
+<body>
+  <a href="#konten" class="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:bg-white focus:px-3 focus:py-2">Lewati ke konten utama</a>
+
+  <header class="sticky top-0 z-20 border-b border-line bg-paper/95 backdrop-blur">
+    <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4" aria-label="Navigasi utama">
+      <a href="index.html" class="font-display text-2xl font-extrabold text-teal">Kasku</a>
+      <ul id="menu" class="absolute left-0 right-0 top-full hidden flex-col gap-1 border-b border-line bg-paper p-6 md:static md:flex md:flex-row md:gap-8 md:border-0 md:bg-transparent md:p-0">
+        <li><a class="block py-2 hover:text-teal aria-[current=page]:font-bold aria-[current=page]:text-teal" href="index.html" aria-current="page">Beranda</a></li>
+        <li><a class="block py-2 hover:text-teal aria-[current=page]:font-bold aria-[current=page]:text-teal" href="transaksi.html">Transaksi</a></li>
+        <li><a class="block py-2 hover:text-teal aria-[current=page]:font-bold aria-[current=page]:text-teal" href="anggaran.html">Anggaran</a></li>
+        <li><a class="block py-2 hover:text-teal aria-[current=page]:font-bold aria-[current=page]:text-teal" href="kurs.html">Kurs</a></li>
+        <li><a class="block py-2 hover:text-teal aria-[current=page]:font-bold aria-[current=page]:text-teal" href="masukan.html">Masukan</a></li>
+      </ul>
+      <button id="menu-btn" type="button" class="rounded-lg border border-line px-3 py-2 md:hidden" aria-expanded="false" aria-controls="menu">Menu</button>
+    </nav>
+  </header>
+
+  <main id="konten">
+    <!-- ===== HERO ===== -->
+    <section class="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 px-6 py-16 lg:grid-cols-2 lg:py-24" aria-labelledby="hero-title">
+      <article>
+        <h1 id="hero-title" class="font-display text-4xl font-extrabold leading-tight sm:text-5xl lg:text-6xl">Catat uang sakumu. Lihat ke mana perginya.</h1>
+        <p class="mt-6 max-w-prose text-lg leading-relaxed">Kasku mencatat pemasukan dan pengeluaran, membandingkannya dengan anggaran bulananmu, dan menunjukkan kategori yang paling banyak menghabiskan uang.</p>
+        <menu class="mt-8 flex flex-wrap gap-4">
+          <li><a href="transaksi.html" class="btn-primary">Mulai mencatat</a></li>
+          <li><a href="anggaran.html" class="btn-outline">Atur anggaran</a></li>
+        </menu>
+      </article>
+      <aside class="card shadow-lg" aria-labelledby="ringkas-title">
+        <h2 id="ringkas-title" class="font-display text-lg font-bold">Ringkasan <span id="sum-month"></span></h2>
+        <p class="mt-4 text-sm">Saldo total</p>
+        <p id="sum-balance" class="font-display text-4xl font-extrabold" aria-live="polite"></p>
+        <ul class="mt-6 grid grid-cols-2 gap-4">
+          <li><p class="text-sm">Pemasukan bulan ini</p><p id="sum-income" class="font-bold text-income"></p></li>
+          <li><p class="text-sm">Pengeluaran bulan ini</p><p id="sum-expense" class="font-bold text-expense"></p></li>
+        </ul>
+      </aside>
+    </section>
+
+    <!-- ===== PINTASAN KE HALAMAN LAIN ===== -->
+    <section class="section pt-0" aria-labelledby="fitur-title">
+      <h2 id="fitur-title" class="font-display text-3xl font-extrabold">Mau lakukan apa hari ini?</h2>
+      <ul class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <li>
+          <a href="transaksi.html" class="card block h-full hover:border-teal">
+            <h3 class="font-display text-lg font-bold">Transaksi</h3>
+            <p class="mt-2 text-sm">Catat pemasukan dan pengeluaran, lalu cari atau filter riwayatnya.</p>
+          </a>
+        </li>
+        <li>
+          <a href="anggaran.html" class="card block h-full hover:border-teal">
+            <h3 class="font-display text-lg font-bold">Anggaran</h3>
+            <p class="mt-2 text-sm">Atur batas bulanan dan lihat kategori yang paling boros.</p>
+          </a>
+        </li>
+        <li>
+          <a href="kurs.html" class="card block h-full hover:border-teal">
+            <h3 class="font-display text-lg font-bold">Kurs</h3>
+            <p class="mt-2 text-sm">Lihat saldomu dalam dolar berdasarkan kurs terkini.</p>
+          </a>
+        </li>
+        <li>
+          <a href="masukan.html" class="card block h-full hover:border-teal">
+            <h3 class="font-display text-lg font-bold">Masukan</h3>
+            <p class="mt-2 text-sm">Kirim saran fitur untuk pengembangan Kasku.</p>
+          </a>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="bg-ink py-8 text-center text-paper">
+    <p>&copy; 2026 Kasku. Praktikum Pemrograman Web, Universitas Muhammadiyah Malang.</p>
+  </footer>
+
+  <script type="module" src="./js/page-home.js"></script>
+</body>
+</html>
