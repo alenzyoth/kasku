@@ -28,7 +28,7 @@ kasku/
 ├── package.json
 ├── README.md
 ├── .gitignore
-├── docs/                      <- taruh screenshot di sini
+├── docs/                      
 └── src/
     ├── index.html  transaksi.html  anggaran.html  kurs.html  masukan.html
     ├── main.css               <- sumber Tailwind (token tema + komponen)
